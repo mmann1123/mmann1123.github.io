@@ -7,11 +7,10 @@ Live at: https://mmann1123.github.io/
 ## Structure
 - `index.html` — single-page site
 - `colors_and_type.css` — design tokens (colors, typography)
-- `assets/` — portrait, logos, icons
+- `assets/` — portrait, logos, globe icon
 
-## Local preview
-Any static server works, e.g.:
-```bash
-python -m http.server 8000
-```
-Then visit http://localhost:8000/
+## Deploy
+Push to the `main` branch; GitHub Pages auto-publishes.
+
+## Attribution
+Globe icon by Creative Stall Premium (Flaticon, free license).

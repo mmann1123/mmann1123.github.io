@@ -26,6 +26,14 @@
   nav.primary a:hover { color: var(--brand); border-bottom-color: var(--brand); }
   nav.primary a.is-active { color: var(--terracotta-600); border-bottom-color: var(--terracotta-500); }
 
+  /* --- Nav toggle (mobile burger) --- */
+  .nav-toggle { display: none; background: transparent; border: 1px solid var(--border-2); border-radius: 6px; width: 40px; height: 40px; padding: 0; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; transition: background 140ms ease, border-color 140ms ease; }
+  .nav-toggle:hover { background: var(--paper-2); border-color: var(--terracotta-300); }
+  .nav-toggle-bar { display: block; width: 18px; height: 1.8px; background: var(--ink); border-radius: 2px; transition: transform 200ms ease, opacity 160ms ease; transform-origin: center; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(6.8px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-6.8px) rotate(-45deg); }
+
   /* --- Hero --- */
   .hero { padding: 72px 0 48px; position: relative; overflow: hidden; }
   .hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: center; }
@@ -202,14 +210,127 @@
   footer.site { border-top: 1px solid var(--border-1); background: var(--paper-2); padding: 28px 0; font-family: var(--font-sans); font-size: 12px; color: var(--fg-3); }
   footer.site .inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
 
-  @media (max-width: 860px) {
-    .hero-grid, .about-grid, .code-hero, .proj-grid, .teach-grid, .consult-grid, .contact-grid { grid-template-columns: 1fr; }
-    .featured-paper { grid-template-columns: 1fr; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .pub { grid-template-columns: 60px 1fr; }
-    .pub .right { grid-column: 2; text-align: left; align-items: flex-start; }
-    .hero h1 { font-size: 38px; }
-    nav.primary { display: none; }
+  /* ======== RESPONSIVE ======== */
+
+  /* Tablet ≤ 980px */
+  @media (max-width: 980px) {
+    .container { padding: 0 24px; }
+    .nav-toggle { display: inline-flex; }
+    nav.primary {
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; padding: 8px 0 12px;
+      background: rgba(250,246,239,0.98); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-1);
+      transform: translateY(-12px); opacity: 0; pointer-events: none;
+      transition: transform 220ms ease, opacity 180ms ease;
+      font-size: 15px;
+      box-shadow: var(--shadow-1);
+    }
+    nav.primary a {
+      padding: 14px 32px; border-bottom: 1px solid var(--border-1); border-right: 0;
+    }
+    nav.primary a:last-child { border-bottom: 0; }
+    nav.primary a:hover { border-bottom-color: var(--border-1); background: var(--paper-2); }
+    header.site { position: sticky; }
+    header.site .inner { position: relative; }
+    header.site.is-open nav.primary { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .hero { padding: 56px 0 40px; }
+    .hero-grid { grid-template-columns: 1.3fr 1fr; gap: 36px; }
+    .hero h1 { font-size: 44px !important; }
+    .section-head h2 { font-size: 30px; }
+    .featured-paper { grid-template-columns: 1fr 180px; gap: 24px; padding: 26px; }
+    .about-grid { grid-template-columns: 1.2fr 1fr; gap: 36px; }
+    .consult-grid { grid-template-columns: 1fr; gap: 32px; }
+    .code-hero { grid-template-columns: 1fr 1fr; }
+    .proj-grid { grid-template-columns: repeat(2, 1fr); }
+    .teach-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .cites-chart-total { font-size: 32px; }
+    .cites-chart { height: 220px; }
+  }
+
+  /* Phone ≤ 680px */
+  @media (max-width: 680px) {
+    .container { padding: 0 20px; }
+    header.site .inner { padding: 12px 0 12px 8px; }
+    .brand { font-size: 17px; gap: 10px; }
+    .brand small { font-size: 9.5px; letter-spacing: 0.12em; margin-top: 2px; }
+    .brand-globe { width: 32px; height: 32px; }
+    nav.primary a { padding: 14px 24px; font-size: 15px; }
+    .hero { padding: 40px 0 32px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .hero h1 { font-size: 34px !important; line-height: 1.15; }
+    .hero .lead { font-size: 16px; }
+    .portrait { max-width: 280px; margin: 0 auto; }
+    .cta-row { gap: 8px; }
+    .btn { padding: 9px 14px; font-size: 13px; }
+
+    .stats { grid-template-columns: repeat(2, 1fr); margin-top: 36px; }
+    .stat:nth-child(2) { border-right: 0; }
+    .stat:nth-child(-n+2) { border-bottom: 1px solid var(--border-1); }
+    .stat .n { font-size: 26px; }
+
+    section.band { padding: 56px 0; }
+    .section-head { margin-bottom: 24px; gap: 12px; }
+    .section-head h2 { font-size: 26px; }
+    .section-head .sublink { font-size: 12px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about p { font-size: 16px; line-height: 1.7; }
+
+    /* Cumulative citations chart */
+    .cites-chart-wrap { padding: 20px 18px 16px; }
+    .cites-chart-head { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 10px; }
+    .cites-chart-total { font-size: 30px; }
+    .cites-chart-note { text-align: left; font-size: 10px; }
+    .cites-chart { height: 180px; }
+    .cites-chart-foot { grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .cites-chart-foot .mile-v { font-size: 15px; }
+    .cites-chart-foot .mile-n { font-size: 9px; }
+
+    /* Featured paper → stack */
+    .featured-paper { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
+    .paper-title { font-size: 20px; }
+    .altmetric-panel { align-items: flex-start; }
+    .altmetric-break { max-width: 100%; }
+
+    /* Publication rows → stack */
+    .pub { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+    .pub .yr { padding-top: 0; font-size: 12px; }
+    .pub .tt { font-size: 16px; }
+    .pub .au, .pub .vn { font-size: 13px; }
+    .pub .right { text-align: left; align-items: flex-start; flex-direction: row; gap: 16px; margin-top: 4px; }
+    .pub .right .cites-l { margin-top: 0; }
+
+    /* Code */
+    .code-hero { grid-template-columns: 1fr; gap: 12px; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .proj-card { padding: 20px; }
+    .proj-card.feat { padding: 22px; }
+    .proj-logo { height: 52px; }
+    .proj-logo img { max-height: 52px; max-width: 200px; }
+
+    /* Teaching */
+    .teach-grid { grid-template-columns: 1fr; gap: 14px; }
+
+    /* Consulting */
+    .consult-grid { grid-template-columns: 1fr; gap: 28px; }
+    .clients { grid-template-columns: 1fr; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+
+    /* Footer */
+    footer.site .inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+
+  /* Very small ≤ 380px */
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 28px !important; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: 0; border-bottom: 1px solid var(--border-1); }
+    .stat:last-child { border-bottom: 0; }
+    .cites-chart-foot { grid-template-columns: repeat(2, 1fr); row-gap: 12px; }
   }
 </style>
 </head>
@@ -219,20 +340,18 @@
 <header class="site">
   <div class="container inner">
     <a href="#top" class="brand" style="text-decoration:none;color:inherit;">
-      <svg class="brand-globe" width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="17.5" stroke="currentColor" stroke-width="1.4"/>
-        <ellipse cx="20" cy="20" rx="17.5" ry="7" stroke="currentColor" stroke-width="1.1"/>
-        <path d="M20 2.5 V37.5" stroke="currentColor" stroke-width="1.1"/>
-        <ellipse cx="20" cy="20" rx="7" ry="17.5" stroke="currentColor" stroke-width="1.1"/>
-        <path d="M3.2 15 Q20 10 36.8 15" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-        <path d="M3.2 25 Q20 30 36.8 25" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-      </svg>
+      <img class="brand-globe" src="assets/brand-globe.png?v=2" width="38" height="38" alt="" aria-hidden="true" title="Globe icon by Creative Stall Premium (Flaticon)" />
       <span>
         Michael L. Mann
         <small>Geography · GWU</small>
       </span>
     </a>
-    <nav class="primary">
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="primary" id="primary-nav">
       <a href="#about">About</a>
       <a href="#publications">Publications</a>
       <a href="#code">Code</a>
@@ -801,7 +920,7 @@
 <footer class="site">
   <div class="container inner">
     <div>© 2026 Michael L. Mann · Designed for GitHub Pages</div>
-    <div>CC BY 4.0 where applicable · Built with pyGIS.io brand system</div>
+    <div>CC BY 4.0 where applicable · Built with pyGIS.io brand system · <a href="https://www.flaticon.com/free-icons/globe" title="globe icons" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-2);">Globe icon by Creative Stall Premium</a></div>
   </div>
 </footer>
 
@@ -1043,6 +1162,36 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       toggle.querySelector('.tgl-arrow').style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
       // When opening, re-run altmetric embed to render newly-visible badges
       if (!open && window._altmetric_embed_init) { window._altmetric_embed_init(); }
+    });
+  }
+  // --- Mobile nav (burger) ---
+  const headerEl = document.querySelector('header.site');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navPrimary = document.getElementById('primary-nav');
+  if (navToggle && headerEl && navPrimary) {
+    navToggle.addEventListener('click', () => {
+      const open = headerEl.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navPrimary.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        headerEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!headerEl.classList.contains('is-open')) return;
+      if (!headerEl.contains(e.target)) {
+        headerEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && headerEl.classList.contains('is-open')) {
+        headerEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.focus();
+      }
     });
   }
 })();
