@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <title>Michael L. Mann — Geography, GWU</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="colors_and_type.css" />
-<link rel="icon" href="assets/monogram-mm.svg" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="icon" href="../assets/monogram-mm.svg" />
 <style>
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   body { margin: 0; background: var(--paper); color: var(--ink); }
@@ -340,7 +340,7 @@
 <header class="site">
   <div class="container inner">
     <a href="#top" class="brand" style="text-decoration:none;color:inherit;">
-      <img class="brand-globe" src="assets/brand-globe.png?v=2" width="38" height="38" alt="" aria-hidden="true" title="Globe icon by Creative Stall Premium (Flaticon)" />
+      <img class="brand-globe" src="../assets/brand-globe.png?v=2" width="38" height="38" alt="" aria-hidden="true" title="Globe icon by Creative Stall Premium (Flaticon)" />
       <span>
         Michael L. Mann
         <small>Geography · GWU</small>
@@ -368,7 +368,7 @@
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">Associate Professor · Director of Graduate Studies</div>
-      <h1 style="font-size: 52px;">Spatial modeling at the intersection of :<br/><em>remote sensing</em>,<br/><em class="moss">machine learning</em>,<br/>human systems.</h1>
+      <h1 style="font-size: 52px;">Spatial modeling at the intersection of :<br/><em>remote sensing</em>,<br/><em class="moss" style="color: rgb(85, 108, 147);">machine learning</em>,<br/><em style="color: var(--moss-500);">human systems</em>.</h1>
       <p class="lead">I build end-to-end geospatial data science pipelines — combining satellite imagery, spatial econometrics, and machine learning to forecast wildfires, predict crop loss, and monitor welfare in data-sparse regions across the Global South.</p>
       <div class="cta-row">
         <a class="btn primary" href="https://scholar.google.com/citations?user=C4ngKawAAAAJ" target="_blank" rel="noopener">Google Scholar →</a>
@@ -376,7 +376,7 @@
         <a class="btn ghost" href="https://github.com/mmann1123" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
-    <div class="portrait" aria-label="Michael L. Mann portrait"><img src="assets/portrait.png" alt="Michael L. Mann" /></div>
+    <div class="portrait" aria-label="Michael L. Mann portrait"><img src="../assets/portrait.png" alt="Michael L. Mann" /></div>
   </div>
 
   <div class="container">
@@ -734,7 +734,7 @@
 
     <div class="code-hero">
       <a href="https://pygis.io" target="_blank" rel="noopener" class="proj-card feat" style="text-decoration:none;color:inherit;">
-        <div class="proj-logo"><img src="assets/pygis-logo.png" alt="pyGIS" /></div>
+        <div class="proj-logo"><img src="../assets/pygis-logo.png" alt="pyGIS" /></div>
         <div class="proj-desc">An online textbook covering the core of geospatial Python — vector &amp; raster data, remote sensing, machine learning, and deep learning applications. Widely used as a university course companion.</div>
         <div class="proj-meta">
           <span class="met"><span class="lang-dot" style="background:#f1c40f;"></span>Jupyter Notebook</span>
@@ -745,7 +745,7 @@
       </a>
 
       <a href="https://github.com/jgrss/geowombat" target="_blank" rel="noopener" class="proj-card feat" style="text-decoration:none;color:inherit;">
-        <div class="proj-logo"><img src="assets/geowombat-logo.png" alt="GeoWombat" /></div>
+        <div class="proj-logo"><img src="../assets/geowombat-logo.png" alt="GeoWombat" /></div>
         <div class="proj-desc">Utilities for processing geospatial and time-series raster data at scale. Simple read/write for Landsat, Sentinel, PlanetScope, and RGB imagery with a Dask-powered backend for parallel compute.</div>
         <div class="proj-meta">
           <span class="met"><span class="lang-dot" style="background:#f1c40f;"></span>Jupyter Notebook</span>
@@ -1016,14 +1016,19 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 
   function applyTweaks(t) {
     currentTweaks = { ...currentTweaks, ...t };
-    // accent color
+    // accent color — use literal hex to avoid circular var() references
     const accent = {
-      terracotta: { 500: 'var(--terracotta-500)', 600: 'var(--terracotta-600)', 50: 'var(--terracotta-50)' },
-      moss:       { 500: 'var(--moss-500)',       600: 'var(--moss-700)',       50: 'var(--moss-50)' },
-      ochre:      { 500: 'var(--ochre-400)',      600: 'var(--ochre-500)',      50: 'var(--ochre-100)' },
-      clay:       { 500: 'var(--clay-500)',       600: 'var(--clay-600)',       50: 'var(--clay-50)' }
-    }[currentTweaks.accentColor] || null;
-    if (accent) {
+      terracotta: { 500: '#92603e', 600: '#73492d', 50: '#f5ece0' },
+      moss:       { 500: '#585e48', 600: '#2f3226', 50: '#ebece1' },
+      ochre:      { 500: '#c49a3e', 600: '#a07d2c', 50: '#faf1d9' },
+      clay:       { 500: '#b85a3c', 600: '#934128', 50: '#f9e4d7' }
+    }[currentTweaks.accentColor];
+    if (currentTweaks.accentColor === 'terracotta') {
+      // Restore defaults by removing inline overrides
+      document.documentElement.style.removeProperty('--terracotta-500');
+      document.documentElement.style.removeProperty('--terracotta-600');
+      document.documentElement.style.removeProperty('--terracotta-50');
+    } else if (accent) {
       document.documentElement.style.setProperty('--terracotta-500', accent[500]);
       document.documentElement.style.setProperty('--terracotta-600', accent[600]);
       document.documentElement.style.setProperty('--terracotta-50', accent[50]);
