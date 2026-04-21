@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80">
+  <rect width="400" height="80" fill="#faf6ef"></rect>
+  <g transform="translate(20, 18)" fill="none" stroke="#4f5a32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    
+    <rect x="0" y="0" width="44" height="44" rx="3"></rect>
+    <line x1="0" y1="15" x2="44" y2="15"></line>
+    <line x1="0" y1="30" x2="44" y2="30"></line>
+    <line x1="15" y1="0" x2="15" y2="44"></line>
+    <line x1="30" y1="0" x2="30" y2="44"></line>
+    <rect x="15" y="15" width="15" height="15" fill="#4f5a32" fill-opacity="0.25" stroke="none"></rect>
+  </g>
+  <text x="82" y="52" font-family="&#39;Source Serif 4&#39;, Georgia, serif" font-size="30" font-weight="600" fill="#1f1a14" letter-spacing="-0.3">GeoWombat</text>
+</svg>

@@ -1,0 +1,300 @@
+/* =========================================================
+   Michael L. Mann — Design System
+   colors_and_type.css
+   Warm earth tones, professional academic styling
+   ========================================================= */
+
+/* ---- Webfonts (Google Fonts substitutions; see README) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ==========================================================
+     COLOR — warm earth tones drawn from topo maps, field
+     notebooks, kraft paper, cartographic wash backgrounds.
+     ========================================================== */
+
+  /* Neutrals — warm paper + ink */
+  --paper:         #faf6ef;   /* page background, warm cream  */
+  --paper-2:       #f2ebdd;   /* panel/alt row                */
+  --paper-3:       #e8dec9;   /* hairline wash                */
+  --kraft:         #d9c7a4;   /* warm divider / tag           */
+  --ink:           #1f1a14;   /* body text, near-black warm   */
+  --ink-2:         #3b3226;   /* secondary text               */
+  --ink-3:         #6b5e4b;   /* tertiary / captions          */
+  --ink-4:         #9a8c73;   /* muted / disabled             */
+
+  /* Earth primary — Google Maps terrain terracotta (muted, golden-sienna) */
+  --terracotta-50:  #f5ece0;
+  --terracotta-100: #ead6bd;
+  --terracotta-200: #d9b892;
+  --terracotta-300: #c69670;
+  --terracotta-400: #ad7852;
+  --terracotta-500: #92603e;  /* primary brand — muted sienna */
+  --terracotta-600: #73492d;
+  --terracotta-700: #553420;
+
+  /* Earth secondary — dusty sage / lichen */
+  --moss-50:   #ebece1;
+  --moss-100:  #d5d7c3;
+  --moss-200:  #b3b79c;
+  --moss-300:  #8d9277;
+  --moss-400:  #6f755c;
+  --moss-500:  #585e48;       /* secondary brand — desaturated */
+  --moss-600:  #424636;
+  --moss-700:  #2f3226;
+
+  /* Earth accent — dusty wheat / faded linen (no bright yellow) */
+  --ochre-50:  #efe8d7;
+  --ochre-100: #e0d5ba;
+  --ochre-200: #c9ba95;
+  --ochre-300: #ad9a72;
+  --ochre-400: #8b7a54;
+  --ochre-500: #6a5c3f;
+
+  /* Deep clay / aubergine — used sparingly for rich contrast */
+  --clay-500:  #5a2a1f;
+  --clay-700:  #3a1a12;
+
+  /* Sky / slate — cool counterpoint for data viz & links */
+  --slate-100: #dde2e6;
+  --slate-300: #8a9097;
+  --slate-500: #4e555c;
+  --slate-700: #2a2f34;
+
+  /* Semantic — foreground / background tiers */
+  --fg-1: var(--ink);
+  --fg-2: var(--ink-2);
+  --fg-3: var(--ink-3);
+  --fg-4: var(--ink-4);
+  --bg-1: var(--paper);
+  --bg-2: var(--paper-2);
+  --bg-3: var(--paper-3);
+  --border-1: rgba(31, 26, 20, 0.12);
+  --border-2: rgba(31, 26, 20, 0.22);
+  --rule:     rgba(31, 26, 20, 0.55);  /* hairline thin rule */
+
+  /* Semantic — action */
+  --brand:         var(--terracotta-500);
+  --brand-hover:   var(--terracotta-600);
+  --brand-press:   var(--terracotta-700);
+  --accent:        var(--moss-500);
+  --highlight:     var(--ochre-300);
+  --link:          var(--terracotta-600);
+  --link-visited:  var(--clay-500);
+
+  /* Semantic — status (muted) */
+  --ok:     #585e48;   /* sage */
+  --warn:   #8b7a54;   /* dusty wheat */
+  --error:  #87402f;   /* muted rust */
+  --info:   #4a5a66;   /* muted slate */
+
+  /* ==========================================================
+     TYPOGRAPHY
+     Serif display + serif body (academic/editorial),
+     humanist sans for UI, mono for code.
+     ========================================================== */
+  --font-serif:   'Source Serif 4', 'Iowan Old Style', 'Palatino', 'Georgia', serif;
+  --font-sans:    'Source Sans 3', 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Mono', 'SF Mono', Menlo, monospace;
+
+  /* Type scale — modular, 1.25 ratio, rooted in 16px */
+  --fs-xs:   0.75rem;   /* 12 — captions, meta */
+  --fs-sm:   0.875rem;  /* 14 — small UI       */
+  --fs-base: 1rem;      /* 16 — body           */
+  --fs-md:   1.125rem;  /* 18 — lead / intro   */
+  --fs-lg:   1.375rem;  /* 22 — h4             */
+  --fs-xl:   1.75rem;   /* 28 — h3             */
+  --fs-2xl:  2.25rem;   /* 36 — h2             */
+  --fs-3xl:  3rem;      /* 48 — h1             */
+  --fs-4xl:  4rem;      /* 64 — display        */
+
+  --lh-tight: 1.15;
+  --lh-snug:  1.3;
+  --lh-body:  1.6;
+  --lh-loose: 1.75;
+
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide:  0.04em;
+  --tracking-caps:  0.12em;
+
+  /* ==========================================================
+     SPACING — 4px base
+     ========================================================== */
+  --space-1: 0.25rem;   /* 4  */
+  --space-2: 0.5rem;    /* 8  */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96 */
+
+  /* ==========================================================
+     RADII — conservative, editorial
+     ========================================================== */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+
+  /* ==========================================================
+     SHADOWS — soft, warm, low-elevation (paper feel)
+     ========================================================== */
+  --shadow-1: 0 1px 2px rgba(62, 38, 15, 0.06),
+              0 1px 1px rgba(62, 38, 15, 0.04);
+  --shadow-2: 0 2px 6px rgba(62, 38, 15, 0.08),
+              0 1px 2px rgba(62, 38, 15, 0.05);
+  --shadow-3: 0 8px 24px rgba(62, 38, 15, 0.10),
+              0 2px 4px rgba(62, 38, 15, 0.05);
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.5),
+                  inset 0 -1px 0 rgba(31,26,20,0.06);
+
+  /* Focus ring — warm */
+  --focus-ring: 0 0 0 3px rgba(162, 78, 30, 0.28);
+}
+
+/* =========================================================
+   SEMANTIC ELEMENT STYLES
+   ========================================================= */
+
+html, body {
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-serif);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-5);
+}
+
+h2, .h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-4);
+}
+
+h3, .h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-3);
+}
+
+h4, .h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-3);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.lead, p.lead {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+p {
+  font-family: var(--font-serif);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-4);
+  text-wrap: pretty;
+}
+
+small, .meta {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--fg-3);
+}
+
+.caption {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: var(--fg-3);
+  letter-spacing: var(--tracking-wide);
+}
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--paper-2);
+  color: var(--clay-500);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-1);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  background: #f7efde;
+  color: var(--ink);
+  padding: var(--space-4);
+  border-left: 3px solid var(--terracotta-500);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+}
+pre code { background: transparent; border: 0; padding: 0; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 3px;
+  transition: color 120ms ease;
+}
+a:hover { color: var(--brand-press); }
+a:visited { color: var(--link-visited); }
+
+blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--fg-2);
+  border-left: 3px solid var(--kraft);
+  padding: var(--space-2) var(--space-5);
+  margin: var(--space-5) 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-1);
+  margin: var(--space-6) 0;
+}
+
+/* Utility */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 var(--space-5); }
+.measure   { max-width: 62ch; }

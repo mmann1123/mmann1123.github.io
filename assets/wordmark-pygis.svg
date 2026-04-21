@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <rect width="320" height="80" fill="#faf6ef"></rect>
+  <text x="20" y="52" font-family="&#39;JetBrains Mono&#39;, monospace" font-size="34" font-weight="500" fill="#a24e1e">{</text>
+  <text x="48" y="52" font-family="&#39;Source Serif 4&#39;, Georgia, serif" font-size="34" font-weight="600" fill="#1f1a14" letter-spacing="-0.5">pyGIS</text>
+  <text x="156" y="52" font-family="&#39;JetBrains Mono&#39;, monospace" font-size="34" font-weight="500" fill="#a24e1e">}</text>
+  <text x="184" y="50" font-family="&#39;Source Sans 3&#39;, sans-serif" font-size="13" fill="#6b5e4b">open spatial programming</text>
+</svg>

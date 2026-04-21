@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="8" fill="#faf6ef"></rect>
+  <g transform="translate(60 54)" fill="none" stroke="#73492d" stroke-linecap="round" stroke-linejoin="round">
+    
+    <circle r="32" stroke-width="1.6"></circle>
+    
+    <g stroke-width="0.9" opacity="0.75">
+      <ellipse cx="0" cy="0" rx="32" ry="10"></ellipse>
+      <ellipse cx="0" cy="0" rx="32" ry="20"></ellipse>
+      <ellipse cx="0" cy="0" rx="10" ry="32"></ellipse>
+      <ellipse cx="0" cy="0" rx="22" ry="32"></ellipse>
+    </g>
+    
+    <line x1="-32" y1="0" x2="32" y2="0" stroke-width="1.2"></line>
+    
+    <line x1="0" y1="-32" x2="0" y2="32" stroke-width="1.2"></line>
+    
+    <path d="M -14 -18 Q -8 -20 -4 -14 Q -2 -8 -8 -4 Q -10 2 -6 8 Q -2 14 -8 18" stroke="#92603e" stroke-width="1.6" fill="none" opacity="0.85"></path>
+    <path d="M 6 -12 Q 12 -10 14 -4 Q 16 2 12 8 Q 10 14 14 18" stroke="#92603e" stroke-width="1.6" fill="none" opacity="0.7"></path>
+    
+    <g transform="translate(10 -10)">
+      <circle r="2.2" fill="#73492d"></circle>
+    </g>
+  </g>
+  
+  <text x="60" y="108" text-anchor="middle" font-family="&#39;Source Serif 4&#39;, Georgia, serif" font-size="18" font-weight="600" fill="#73492d" letter-spacing="2">MM</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80" preserveAspectRatio="none">
+  
+  <g fill="none" stroke="#a24e1e" stroke-width="0.7" opacity="0.22">
+    <path d="M0 60 Q80 40 160 48 T320 42 T400 48"></path>
+    <path d="M0 50 Q80 32 160 38 T320 32 T400 38"></path>
+    <path d="M0 40 Q80 24 160 28 T320 22 T400 28"></path>
+    <path d="M0 30 Q80 16 160 20 T320 14 T400 20"></path>
+    <path d="M0 20 Q80 10 160 12 T320 8 T400 12"></path>
+    <path d="M0 70 Q80 54 160 60 T320 54 T400 60"></path>
+  </g>
+</svg>
