@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <title>Michael L. Mann — Geography, GWU</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="colors_and_type.css" />
-<link rel="icon" href="assets/monogram-mm.svg" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="icon" href="../assets/monogram-mm.svg" />
 <style>
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   body { margin: 0; background: var(--paper); color: var(--ink); }
@@ -218,22 +218,30 @@
     .nav-toggle { display: inline-flex; }
     nav.primary {
       position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; gap: 0; padding: 8px 0 12px;
+      flex-direction: column; gap: 0; padding: 8px;
       background: rgba(250,246,239,0.98); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-1);
-      transform: translateY(-12px); opacity: 0; pointer-events: none;
-      transition: transform 220ms ease, opacity 180ms ease;
+      border: 1px solid var(--border-1);
+      border-radius: 10px;
+      min-width: 240px;
+      position: absolute; top: calc(100% + 8px); left: auto; right: 20px;
+      transform: translateY(-8px) scale(0.98); transform-origin: top right; opacity: 0; pointer-events: none;
+      transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1), opacity 160ms ease;
       font-size: 15px;
-      box-shadow: var(--shadow-1);
+      box-shadow: var(--shadow-3);
     }
     nav.primary a {
-      padding: 14px 32px; border-bottom: 1px solid var(--border-1); border-right: 0;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border-1); border-right: 0;
+      border-radius: 6px;
+      color: var(--ink);
+      transition: background 140ms ease, color 140ms ease, padding-left 160ms ease;
     }
     nav.primary a:last-child { border-bottom: 0; }
-    nav.primary a:hover { border-bottom-color: var(--border-1); background: var(--paper-2); }
+    nav.primary a:hover { border-bottom-color: transparent; background: var(--paper-2); color: var(--terracotta-600); padding-left: 20px; }
+    nav.primary a.is-active { background: rgba(200,91,48,0.08); color: var(--terracotta-600); border-bottom-color: transparent; }
     header.site { position: sticky; }
     header.site .inner { position: relative; }
-    header.site.is-open nav.primary { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    header.site.is-open nav.primary { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
     .hero { padding: 56px 0 40px; }
     .hero-grid { grid-template-columns: 1.3fr 1fr; gap: 36px; }
     .hero h1 { font-size: 44px !important; }
@@ -340,7 +348,7 @@
 <header class="site">
   <div class="container inner">
     <a href="#top" class="brand" style="text-decoration:none;color:inherit;">
-      <img class="brand-globe" src="assets/brand-globe.png?v=2" width="38" height="38" alt="" aria-hidden="true" title="Globe icon by Creative Stall Premium (Flaticon)" />
+      <img class="brand-globe" src="../assets/brand-globe.png?v=2" width="38" height="38" alt="" aria-hidden="true" title="Globe icon by Creative Stall Premium (Flaticon)" />
       <span>
         Michael L. Mann
         <small>Geography · GWU</small>
@@ -376,7 +384,7 @@
         <a class="btn ghost" href="https://github.com/mmann1123" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
-    <div class="portrait" aria-label="Michael L. Mann portrait"><img src="assets/portrait.png" alt="Michael L. Mann" /></div>
+    <div class="portrait" aria-label="Michael L. Mann portrait"><img src="../assets/portrait.png" alt="Michael L. Mann" /></div>
   </div>
 
   <div class="container">
@@ -734,8 +742,8 @@
 
     <div class="code-hero">
       <a href="https://pygis.io" target="_blank" rel="noopener" class="proj-card feat" style="text-decoration:none;color:inherit;">
-        <div class="proj-logo"><img src="assets/pygis-logo.png" alt="pyGIS" /></div>
-        <div class="proj-desc">An online textbook covering the core of geospatial Python — vector &amp; raster data, remote sensing, machine learning, and deep learning applications. Widely used as a university course companion.</div>
+        <div class="proj-logo"><img src="../assets/pygis-logo.png" alt="pyGIS" /></div>
+        <div class="proj-desc"><strong>pyGIS™</strong> — an online textbook covering the core of geospatial Python — vector &amp; raster data, remote sensing, machine learning, and deep learning applications. Widely used as a university course companion.</div>
         <div class="proj-meta">
           <span class="met"><span class="lang-dot" style="background:#f1c40f;"></span>Jupyter Notebook</span>
           <span class="met">★ 193</span>
@@ -745,7 +753,7 @@
       </a>
 
       <a href="https://github.com/jgrss/geowombat" target="_blank" rel="noopener" class="proj-card feat" style="text-decoration:none;color:inherit;">
-        <div class="proj-logo"><img src="assets/geowombat-logo.png" alt="GeoWombat" /></div>
+        <div class="proj-logo"><img src="../assets/geowombat-logo.png" alt="GeoWombat" /></div>
         <div class="proj-desc">Utilities for processing geospatial and time-series raster data at scale. Simple read/write for Landsat, Sentinel, PlanetScope, and RGB imagery with a Dask-powered backend for parallel compute.</div>
         <div class="proj-meta">
           <span class="met"><span class="lang-dot" style="background:#f1c40f;"></span>Jupyter Notebook</span>
@@ -825,13 +833,13 @@
 <section class="band" id="consulting">
   <div class="container">
     <div class="section-head">
-      <h2><span class="num">05</span>Consulting with PyGIS</h2>
+      <h2><span class="num">05</span>Consulting with pyGIS™</h2>
     </div>
     <div class="consult-grid">
       <div>
         <p style="font-family:var(--font-serif);font-size:17px;line-height:1.75;color:var(--ink);margin:0 0 18px;">Over 15 years of consulting with public-sector agencies and private geospatial firms — building end-to-end pipelines that combine satellite imagery, spatial econometrics, and machine learning. Engagements typically span scoping, data architecture, model development, and delivery of reproducible workflows to client teams.</p>
         <p style="font-family:var(--font-serif);font-size:17px;line-height:1.75;color:var(--ink-2);margin:0;">Recent work has covered crop-loss forecasting, urban deprivation mapping, electricity reliability from night-lights, and agricultural productivity in data-sparse regions.</p>
-        <p style="font-family:var(--font-serif);font-size:17px;line-height:1.75;color:var(--ink);margin:20px 0 0;">Request for service: Please email <a href="mailto:mmann1123@gwu.com" style="color:var(--terracotta-600);">mmann1123@gwu.com</a></p>
+        <p style="font-family:var(--font-serif);font-size:17px;line-height:1.75;color:var(--ink);margin:20px 0 0;">Request for service: Please email <a href="/cdn-cgi/l/email-protection#fc91919d9292cdcdcecfbc9b8b89d29f9391" style="color:var(--terracotta-600);"><span class="__cf_email__" data-cfemail="472a2a26292976767574072030326924282a">[email&#160;protected]</span></a></p>
       </div>
       <div class="clients">
         <div class="client"><div class="org">The World Bank</div><div class="role">Crop modeling · Welfare mapping</div></div>
@@ -896,7 +904,7 @@
           <div>The George Washington University</div>
           <div>Washington, D.C.</div>
           <span class="lab">Email</span>
-          <div><a href="mailto:mmann1123@gwu.edu">mmann1123@gwu.edu</a></div>
+          <div><a href="/cdn-cgi/l/email-protection#563b3b373838676764651631212378333223"><span class="__cf_email__" data-cfemail="375a5a565959060605047750404219525342">[email&#160;protected]</span></a></div>
         </div>
       </div>
       <div>
@@ -921,12 +929,12 @@
 <footer class="site">
   <div class="container inner">
     <div>© 2026 Michael L. Mann · Designed for GitHub Pages</div>
-    <div>CC BY 4.0 where applicable · Built with pyGIS.io brand system · <a href="https://www.flaticon.com/free-icons/globe" title="globe icons" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-2);">Globe icon by Creative Stall Premium</a></div>
+    <div>CC BY 4.0 where applicable · pyGIS™ is a trademark of Michael L. Mann · <a href="https://www.flaticon.com/free-icons/globe" title="globe icons" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-2);">Globe icon by Creative Stall Premium</a></div>
   </div>
 </footer>
 
 <!-- Altmetric badges script — renders .altmetric-embed divs in-place -->
-<script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 
 <!-- Live GitHub stats: total repos + total stars across mmann1123 + jgrss/geowombat -->
 <script>
